@@ -1,17 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
    <>
-    <nav className='p-8 bg-black text-white font-bold ' >
+    <nav className='p-8 bg-gray-700 text-white font-bold ' >
       <ul className='flex justify-around ' >
         <div  >
-        <li className='text-2xl  '>NoteBook</li>
+        <Link to="/" className='text-2xl  '>NoteBook</Link>
         </div>
         <div className='flex gap-4 ' >
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <Link to="/" >Home</Link>
+          <Link to="/about" >About</Link>
+          <Link to="/contact" >Contact</Link>
         </div>
       </ul>
     </nav>
