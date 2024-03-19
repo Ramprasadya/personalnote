@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import NoteContext from '../context/noteContext'
+import Notes from './Notes'
 
 const Home = () => {
   let {} = useContext(NoteContext)
@@ -35,6 +36,10 @@ const Home = () => {
               <button className='py-4 px-5 bg-violet-500 text-white mt-3 rounded-lg  ' type='submit' onClick={handleSubmit} >Submit</button>
             </div>
           </form>
+        </div>
+        {/* Notes */}
+        <div>
+        <Notes/>
         </div>
       </div>
      
