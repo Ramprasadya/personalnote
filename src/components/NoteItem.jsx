@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { HiTrash } from "react-icons/hi";
+import NoteContext from '../context/noteContext';
 const NoteItem = ({item}) => {
+  const {handleDeleteNote} = useContext(NoteContext)
   return (
     <div className='flex flex-col border border-gray-500 p-5 rounded-lg ' >
         <div>
@@ -15,7 +17,7 @@ const NoteItem = ({item}) => {
         </div>
         <div className='flex gap-3 justify-end ' >
             <span><HiOutlinePencilAlt/></span>
-          <span>  <HiTrash/></span>
+          <span onClick={()=>{handleDeleteNote(item._id)}} >  <HiTrash/></span>
         </div>
     </div>
   )
