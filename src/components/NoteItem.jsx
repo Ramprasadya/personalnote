@@ -16,8 +16,8 @@ const NoteItem = ({item}) => {
             <p>{item.tag}</p>
         </div>
         <div className='flex gap-3 justify-end ' >
-            <span><HiOutlinePencilAlt/></span>
-          <span onClick={()=>{handleDeleteNote(item._id)}} >  <HiTrash/></span>
+            <span className='cursor-pointer'  ><HiOutlinePencilAlt/></span>
+          <span className='cursor-pointer' onClick={()=>{handleDeleteNote(item._id)}} >  <HiTrash/></span>
         </div>
     </div>
   )
