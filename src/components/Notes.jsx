@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import NoteItem from './NoteItem'
 import NoteContext from '../context/noteContext'
 import AddNote from './AddNote'
@@ -9,15 +9,73 @@ const Notes = () => {
     useEffect(()=>{
       getAllNotes();
     },[])
+
+    const ref = useRef(null)
+
+    
+    const [note, setNote] = useState({etitle:"",edesc:"",etag:""})
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      
+    };
+    
+    const updateNote=(currentNote)=>{
+      ref.current.click();
+      setNote({ etitle : currentNote.title , edesc : currentNote.desc , etag:currentNote.tag})
+    }
+    const handleOnChange=(e)=>{
+    setNote({...note,[e.target.name]:e.target.value})
+    }
+
   return (
     <>
 
  
     <AddNote/>
+    <div>
+    {/* <!-- Button trigger modal --> */}
+<button type="button" hidden ref={ref} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+{/* <!-- Modal --> */}
+<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+      <form>
+  <div className="mb-3">
+    <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
+    <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" value={note.etitle} onChange={handleOnChange} />
+  </div>
+  <div className="mb-3">
+    <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
+    <input type="text" className="form-control" id="edesc" name='edesc' value={note.edesc}  onChange={handleOnChange} />
+  </div>
+  <div className="mb-3">
+    <label htmlFor="exampleInputPassword1" className="form-label">Tag</label>
+    <input type="text" className="form-control" id="etag" name='etag' value={note.etag} onChange={handleOnChange} />
+  </div>
+  
+  {/* <button type="submit" className="btn btn-primary">Submit</button> */}
+</form>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary" onClick={handleSubmit} >Update Note</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
     <div className='grid grid-cols-4 gap-4 mt-8 mx-4' >
         {
             notes.map((item,index)=>{
-                return <NoteItem key={index} item={item} />
+                return <NoteItem key={index} item={item} updateNote={updateNote} />
             })
         }
     </div>
