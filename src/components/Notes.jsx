@@ -68,8 +68,8 @@ const Notes = () => {
 </form>
       </div>
       <div className="modal-footer">
-        <button type="button" ref={refClose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary" onClick={handleSubmit} >Update Note</button>
+        <button type="button" ref={refClose} className="py-3 px-4 rounded-[10px] bg-pink-600 text-white hover:bg-red-500 " data-bs-dismiss="modal">Close</button>
+        <button type="button" className="py-3 px-4 rounded-[10px] bg-violet-600 text-white hover:bg-green-600 " onClick={handleSubmit} >Update Note</button>
       </div>
     </div>
   </div>
