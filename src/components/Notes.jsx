@@ -8,7 +8,7 @@ const Notes = () => {
     // console.log(notes)
     useEffect(()=>{
       getAllNotes();
-    },[])
+    },[notes])
 
     const ref = useRef(null)
     const refClose = useRef(null)
@@ -75,13 +75,16 @@ const Notes = () => {
   </div>
 </div>
     </div>
+    <h1  className='text-center my-3 text-3xl font-extrabold' >Your Notes </h1>
     <div className='grid grid-cols-4 gap-4 mt-8 mx-4' >
+       
         {
             notes.map((item,index)=>{
                 return <NoteItem key={index} item={item} updateNote={updateNote} />
             })
         }
     </div>
+    {notes.length === 0 && <div className='text-center' > No Notes to display  </div>}
     </>
   )
 }
