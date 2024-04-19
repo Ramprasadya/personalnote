@@ -26,6 +26,8 @@ const AddNote = () => {
             id="title"
             name="title"
             onChange={handleOnChange}
+            minLength={3}
+            required= {true}
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -36,6 +38,8 @@ const AddNote = () => {
             id="desc"
             name="desc"
             onChange={handleOnChange}
+            minLength={5}
+            required={true}
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -46,6 +50,7 @@ const AddNote = () => {
             id="tag"
             name="tag"
             onChange={handleOnChange}
+            
           />
         </div>
 
