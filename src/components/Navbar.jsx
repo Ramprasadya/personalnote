@@ -14,6 +14,10 @@ const Navbar = () => {
           <Link to="/about" >About</Link>
           <Link to="/contact" >Contact</Link>
         </div>
+        <div className='flex gap-4' >
+          <Link to="/login" className='' >Login</Link>
+          <Link to="/signup">Signup</Link>
+        </div>
       </ul>
     </nav>
    </>
