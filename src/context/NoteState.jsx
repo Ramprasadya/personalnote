@@ -14,7 +14,6 @@ const NoteState = ({children}) => {
             },
           });
         const json = await response.json();
-        console.log("json",json)
         setNotes(json);
     }
 
@@ -29,9 +28,9 @@ const NoteState = ({children}) => {
             },
             body: JSON.stringify({title,desc,tag})
           });
-          // const json = await response.json();
-          // console.log(json)
-          // setNotes(json)
+          const note = await response.json();
+         
+          setNotes(notes.concat(note))
     }
     // Delete note
     const handleDeleteNote=async(id)=>{

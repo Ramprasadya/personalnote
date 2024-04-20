@@ -7,6 +7,7 @@ const AddNote = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddNote(note.title,note.desc,note.tag)
+    setNote({title:"",desc:"",tag:""})
   };
 
   const handleFormSubmit = () => {
@@ -28,6 +29,7 @@ const AddNote = () => {
             onChange={handleOnChange}
             minLength={3}
             required= {true}
+            value={note.title}
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -40,6 +42,7 @@ const AddNote = () => {
             onChange={handleOnChange}
             minLength={5}
             required={true}
+            value={note.desc}
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -50,15 +53,17 @@ const AddNote = () => {
             id="tag"
             name="tag"
             onChange={handleOnChange}
+            value={note.tag}
             
           />
         </div>
 
         <div className="flex justify-center">
           <button
-            className="py-4 px-5 bg-violet-500 text-white mt-3 rounded-lg  "
+            className={`py-4 px-5 ${note.title.length <3 || note.desc.length <5 ? "bg-violet-300" : "bg-violet-500" } text-white mt-3 rounded-lg `}
             type="submit"
             onClick={handleSubmit}
+            disabled={note.title.length <3 || note.desc.length <5 }
           >
             Submit
           </button>
