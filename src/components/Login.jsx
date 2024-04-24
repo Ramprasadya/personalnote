@@ -15,7 +15,7 @@ const Login = () => {
     <label for="exampleInputPassword1" className="form-label">Password</label>
     <input type="password" className="form-control" id="exampleInputPassword1"/>
   </div>
-  <button  type="submit" className="py-2 px-3 bg-orange-600 text-white rounded-[10px] ">Submit</button>
+  <button  type="submit" className="py-2 px-3 bg-violet-600 text-white rounded-[10px] ">Submit</button>
 </form>
    </div>
    </>
