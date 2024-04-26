@@ -148,7 +148,7 @@ const Notes = () => {
         </div>
       </div>
       <h1 className="text-center my-3 text-3xl font-extrabold">Your Notes </h1>
-      <div className="grid grid-cols-4 gap-4 mt-8 mx-4">
+      <div className="grid grid-cols-4 gap-4 my-8 mx-4">
         {notes.map((item, index) => {
           return <NoteItem key={index} item={item} updateNote={updateNote} />;
         })}
