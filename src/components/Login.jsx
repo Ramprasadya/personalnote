@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const navigate = useNavigate()
   const handleSubmit=async(e)=>{
     e.preventDefault()
     const response = await fetch(`http://localhost:3000/api/auth/login`, {
@@ -15,6 +17,8 @@ const Login = () => {
     const jsn =  await response.json()
     if(jsn.success){
       // alert('login')
+      localStorage.setItem("token",jsn.authToken)
+      navigate("/")
       console.log(jsn)
 
     }else{
