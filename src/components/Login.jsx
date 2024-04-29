@@ -31,7 +31,7 @@ const Login = () => {
 
     <form onSubmit={handleSubmit} >
   <div className="mb-3">
-    <label for="exampleInputEmail1" name="email" className="form-label">Email address</label>
+    <label htmlFor="exampleInputEmail1" name="email" className="form-label">Email address</label>
     <input type="email" className="form-control" onChange={(e)=>setEmail(e.target.value)} id="exampleInputEmail1" aria-describedby="emailHelp"/>
     {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
   </div>
